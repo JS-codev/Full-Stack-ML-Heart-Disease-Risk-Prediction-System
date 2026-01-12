@@ -1,0 +1,14 @@
+# render.yaml
+services:
+  - type: web
+    name: heart-disease-api
+    env: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: free  # or starter/basic for paid plans
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11
+    healthCheckPath: /health
+    autoDeploy: true
+    numInstances: 1
