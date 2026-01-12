@@ -9,7 +9,7 @@
 ## System Overview
 
 - Deployed a containerized binary classification service for clinical risk prediction, exposing a versioned REST inference API with performance evaluated using ROC-AUC, precision, and recall on a held-out test set.
-    - Logistic Regression baseline achieved 85% accuracy. 
+    - Tensorflow Logistic Regression baseline achieved 85% accuracy. 
 
 - Designed an end-to-end inference pipeline: 
     - Client input → schema validation → model inference → structured response.
