@@ -65,12 +65,14 @@
 
 2. Do `git clone https://github.com/JS-codev/Full-Stack-ML-Heart-Disease-Risk-Prediction-System.git`
 
-3. Open a terminal > `cd backend`
+3. Make sure Docker Desktop is running online. 
+
+4. Open a terminal > `cd backend`
 
 	- `docker build -t heart-disease-api .` & `docker run -p 10000:10000 heart-disease-api`
 		- Should run at [http://localhost:10000/docs](http://localhost:10000/docs)
 
-4. Open another terminal >`cd 'frontend'`
+5. Open another terminal >`cd 'frontend'`
 	- `npm install` & `npm start`
         - It should auto-open website at [http://localhost:10000/](http://localhost:10000/)
 

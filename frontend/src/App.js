@@ -1,9 +1,3 @@
-[/*
-Created on Mon May 12 20:50:04 2026
-
-@author: Joshua Soh
-*/]
-
 import React, { useState, useEffect } from 'react';
 
 import './output.css'
