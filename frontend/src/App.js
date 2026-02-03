@@ -1,6 +1,53 @@
 import React, { useState, useEffect } from 'react';
-
+import SplashCursor from './SplashCursor';
 import './output.css'
+
+  const formFields = [
+    { name: 'Age', label: 'Age', type: 'number', min: 0, max: 120, placeholder: 'Enter age' },
+    { name: 'Sex', label: 'Gender', type: 'select', options: [
+      { value: '0', label: 'Female' },
+      { value: '1', label: 'Male' }
+    ]},
+    { name: 'ChestPainType', label: 'Chest Pain Type', type: 'select', options: [
+      { value: '1', label: 'Typical Angina' },
+      { value: '2', label: 'Atypical Angina' },
+      { value: '3', label: 'Non-anginal Pain' },
+      { value: '4', label: 'Asymptomatic' }
+    ]},
+    { name: 'BP', label: 'Blood Pressure (mm Hg)', type: 'number', min: 0, max: 300, placeholder: 'e.g., 120' },
+    { name: 'Cholesterol', label: 'Cholesterol (mg/dl)', type: 'number', min: 0, max: 700, placeholder: 'e.g., 200' },
+    { name: 'FBS', label: 'Fasting Blood Sugar > 120 mg/dl', type: 'select', options: [
+      { value: '0', label: 'No (< 120)' },
+      { value: '1', label: 'Yes (> 120)' }
+    ]},
+    { name: 'EKG', label: 'EKG Results', type: 'select', options: [
+      { value: '0', label: 'Normal' },
+      { value: '1', label: 'ST-T Abnormality' },
+      { value: '2', label: 'Left Ventricular Hypertrophy' }
+    ]},
+    { name: 'MaxHR', label: 'Maximum Heart Rate', type: 'number', min: 0, max: 250, placeholder: 'e.g., 150' },
+    { name: 'ExerciseAngina', label: 'Exercise Induced Angina', type: 'select', options: [
+      { value: '0', label: 'No' },
+      { value: '1', label: 'Yes' }
+    ]},
+    { name: 'STDepression', label: 'ST Depression', type: 'number', step: '0.1', min: 0, max: 10, placeholder: 'e.g., 0.0' },
+    { name: 'SlopeST', label: 'Slope of ST Segment', type: 'select', options: [
+      { value: '1', label: 'Upsloping' },
+      { value: '2', label: 'Flat' },
+      { value: '3', label: 'Downsloping' }
+    ]},
+    { name: 'NumVessels', label: 'Number of Major Vessels', type: 'select', options: [
+      { value: '0', label: '0' },
+      { value: '1', label: '1' },
+      { value: '2', label: '2' },
+      { value: '3', label: '3' }
+    ]},
+    { name: 'Thallium', label: 'Thallium Scan', type: 'select', options: [
+      { value: '3', label: 'Normal' },
+      { value: '6', label: 'Fixed Defect' },
+      { value: '7', label: 'Reversible Defect' }
+    ]}
+  ];
 
 function App() {
   const [formData, setFormData] = useState({
@@ -24,7 +71,7 @@ function App() {
   const [error, setError] = useState('');
 
   // backend server (which runs on "http://localhost:10000" or render server: process.env.REACT_APP_API_URL)
-  const API_URL = "http://localhost:10000"
+  const API_URL = process.env.REACT_APP_API_URL
 
   // Open the rander server to prevent backend server from sleeping
   const [serverReady, setServerReady] = useState(false);
@@ -106,61 +153,29 @@ function App() {
     }
   };
 
-  const formFields = [
-    { name: 'Age', label: 'Age', type: 'number', min: 0, max: 120, placeholder: 'Enter age' },
-    { name: 'Sex', label: 'Gender', type: 'select', options: [
-      { value: '0', label: 'Female' },
-      { value: '1', label: 'Male' }
-    ]},
-    { name: 'ChestPainType', label: 'Chest Pain Type', type: 'select', options: [
-      { value: '1', label: 'Typical Angina' },
-      { value: '2', label: 'Atypical Angina' },
-      { value: '3', label: 'Non-anginal Pain' },
-      { value: '4', label: 'Asymptomatic' }
-    ]},
-    { name: 'BP', label: 'Blood Pressure (mm Hg)', type: 'number', min: 0, max: 300, placeholder: 'e.g., 120' },
-    { name: 'Cholesterol', label: 'Cholesterol (mg/dl)', type: 'number', min: 0, max: 700, placeholder: 'e.g., 200' },
-    { name: 'FBS', label: 'Fasting Blood Sugar > 120 mg/dl', type: 'select', options: [
-      { value: '0', label: 'No (< 120)' },
-      { value: '1', label: 'Yes (> 120)' }
-    ]},
-    { name: 'EKG', label: 'EKG Results', type: 'select', options: [
-      { value: '0', label: 'Normal' },
-      { value: '1', label: 'ST-T Abnormality' },
-      { value: '2', label: 'Left Ventricular Hypertrophy' }
-    ]},
-    { name: 'MaxHR', label: 'Maximum Heart Rate', type: 'number', min: 0, max: 250, placeholder: 'e.g., 150' },
-    { name: 'ExerciseAngina', label: 'Exercise Induced Angina', type: 'select', options: [
-      { value: '0', label: 'No' },
-      { value: '1', label: 'Yes' }
-    ]},
-    { name: 'STDepression', label: 'ST Depression', type: 'number', step: '0.1', min: 0, max: 10, placeholder: 'e.g., 0.0' },
-    { name: 'SlopeST', label: 'Slope of ST Segment', type: 'select', options: [
-      { value: '1', label: 'Upsloping' },
-      { value: '2', label: 'Flat' },
-      { value: '3', label: 'Downsloping' }
-    ]},
-    { name: 'NumVessels', label: 'Number of Major Vessels', type: 'select', options: [
-      { value: '0', label: '0' },
-      { value: '1', label: '1' },
-      { value: '2', label: '2' },
-      { value: '3', label: '3' }
-    ]},
-    { name: 'Thallium', label: 'Thallium Scan', type: 'select', options: [
-      { value: '3', label: 'Normal' },
-      { value: '6', label: 'Fixed Defect' },
-      { value: '7', label: 'Reversible Defect' }
-    ]}
-  ];
 
   return (
-    <div className="min-h-screen bg-linear-to-r from-indigo-200 to-teal-100 p-7">
-      <header className="text-center py-8 px-4 bg-linear-to-r from-indigo-600 to-teal-500 text-white rounded-2xl shadow-xl mb-8">
+    <div className="relative min-h-screen bg-linear-to-r from-indigo-200 to-teal-100 p-7">
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <SplashCursor 
+          SIM_RESOLUTION={64}
+          DYE_RESOLUTION={512}
+          DENSITY_DISSIPATION={5.5}
+          VELOCITY_DISSIPATION={2.5}
+          PRESSURE={0.2}
+          CURL={3}
+          SPLAT_RADIUS={0.2}
+          SPLAT_FORCE={6000}
+          COLOR_UPDATE_SPEED={10}
+        />
+      </div>
+
+      <header className="relative text-center py-8 px-4 bg-linear-to-r from-indigo-600 to-teal-500 text-white rounded-2xl shadow-xl mb-8">
         <h1 className="text-4xl font-bold mb-2">Heart Disease Risk Predictor</h1>
         <p className="text-lg opacity-90">Enter patient information to predict heart disease risk</p>
       </header>
       
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto relative z-10">
         <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
           <form onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
@@ -235,7 +250,13 @@ function App() {
         </div>
 
         {prediction && (
-          <div className={`bg-white rounded-2xl shadow-lg p-8 mb-8 border-l-8 ${prediction.prediction === 1 ? 'border-red-500 bg-linear-to-r from-red-50 to-red-25' : 'border-green-500 bg-linear-to-r from-green-50 to-emerald-25'}`}>
+          <div className={`bg-white rounded-2xl shadow-2xl p-8 mb-8 border-4 transition-all duration-500 ${
+      prediction.prediction === 1 
+        ? 'border-red-500 shadow-[0_0_20px_rgba(239,68,68,0.4)] animate-in fade-in zoom-in duration-300' 
+        : 'border-green-500 shadow-[0_0_20px_rgba(16,185,129,0.4)] animate-in fade-in zoom-in duration-300'
+    }`}
+  >
+
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 pb-6 border-b border-gray-200">
               <div>
                 <h2 className="text-2xl font-bold text-gray-800 mb-2">📊 Prediction Results</h2>
@@ -350,7 +371,7 @@ function App() {
         </div>
       </div>
 
-      <footer className="text-center mt-12 text-gray-600 text-sm">
+      <footer className="relative z-10 text-center mt-12 text-gray-600 text-sm">
         <p>Heart Disease Risk Prediction API v1.0 • Stateless REST API for clinical risk inference</p>
         <p className="mt-2">Classification Model trained on real clinical data • Results are for informational purposes only</p>
       </footer>
