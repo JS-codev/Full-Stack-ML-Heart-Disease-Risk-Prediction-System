@@ -48,7 +48,7 @@ import './output.css'
       { value: '7', label: 'Reversible Defect' }
     ]}
   ];
-
+  
 function App() {
   const [formData, setFormData] = useState({
     Age: '',
@@ -71,7 +71,7 @@ function App() {
   const [error, setError] = useState('');
 
   // backend server (which runs on "http://localhost:10000" or render server: process.env.REACT_APP_API_URL)
-  const API_URL = process.env.REACT_APP_API_URL
+  const API_URL = "http://localhost:10000"
 
   // Open the rander server to prevent backend server from sleeping
   const [serverReady, setServerReady] = useState(false);
