@@ -1,6 +1,6 @@
 ## Heart Disease Risk Prediction App (Production ML Inference System)
 
-[![Predictor system](https://img.youtube.com/vi/ejUCckGOi2w/maxresdefault.jpg)](https://youtu.be/ejUCckGOi2w?si=gbnChcxrDD4pEzp8)
+[![Predictor system](https://img.youtube.com/vi/M-rz-a0sn7E/maxresdefault.jpg)](https://youtu.be/M-rz-a0sn7E)
 
 **App:** [Live Build]( https://heart-disease-detector.netlify.app/)
 
