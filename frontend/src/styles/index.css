@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+ 
+@font-face {
+    font-family: 'Familiar Pro';
+    font-style: normal;
+    font-weight: 700; 
+    src: url('./fonts/Familiar_Pro-Bold.woff') format('woff');  
+    font-display: swap;
+}
+
+  @font-face {
+  font-family: 'Keep Calm Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Keep Calm Regular'), url('./fonts/KeepCalm-Medium.woff') format('woff');
+}
+
+ 
+body {
+  margin: 0;
+  font-family: -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  font-family: inherit;
+}

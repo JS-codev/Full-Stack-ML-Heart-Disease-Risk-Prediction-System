@@ -5,7 +5,6 @@
 **App:** [Live Build]( https://heart-disease-detector.netlify.app/)
 
 
-
 ## System Overview
 
 - Deployed a containerized binary classification service for clinical risk prediction, exposing a versioned REST inference API with performance evaluated using ROC-AUC, precision, and recall on a held-out test set.
