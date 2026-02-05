@@ -8,53 +8,69 @@ import './styles/output.css';
 import Card from './styles/card';
 import Background from './styles/background';
 
-  const formFields = [
-    { name: 'Age', label: 'Age', type: 'number', min: 0, max: 120, placeholder: 'Enter age' },
-    { name: 'Sex', label: 'Gender', type: 'select', options: [
-      { value: '0', label: 'Female' },
-      { value: '1', label: 'Male' }
-    ]},
-    { name: 'ChestPainType', label: 'Chest Pain Type', type: 'select', options: [
-      { value: '1', label: 'Typical Angina' },
-      { value: '2', label: 'Atypical Angina' },
-      { value: '3', label: 'Non-anginal Pain' },
-      { value: '4', label: 'Asymptomatic' }
-    ]},
-    { name: 'BP', label: 'Blood Pressure (mm Hg)', type: 'number', min: 0, max: 300, placeholder: 'e.g., 120' },
-    { name: 'Cholesterol', label: 'Cholesterol (mg/dl)', type: 'number', min: 0, max: 700, placeholder: 'e.g., 200' },
-    { name: 'FBS', label: 'Fasting Blood Sugar > 120 mg/dl', type: 'select', options: [
-      { value: '0', label: 'No (< 120)' },
-      { value: '1', label: 'Yes (> 120)' }
-    ]},
-    { name: 'EKG', label: 'EKG Results', type: 'select', options: [
-      { value: '0', label: 'Normal' },
-      { value: '1', label: 'ST-T Abnormality' },
-      { value: '2', label: 'Left Ventricular Hypertrophy' }
-    ]},
-    { name: 'MaxHR', label: 'Maximum Heart Rate', type: 'number', min: 0, max: 250, placeholder: 'e.g., 150' },
-    { name: 'ExerciseAngina', label: 'Exercise Induced Angina', type: 'select', options: [
-      { value: '0', label: 'No' },
-      { value: '1', label: 'Yes' }
-    ]},
-    { name: 'STDepression', label: 'ST Depression', type: 'number', step: '0.1', min: 0, max: 10, placeholder: 'e.g., 0.0' },
-    { name: 'SlopeST', label: 'Slope of ST Segment', type: 'select', options: [
-      { value: '1', label: 'Upsloping' },
-      { value: '2', label: 'Flat' },
-      { value: '3', label: 'Downsloping' }
-    ]},
-    { name: 'NumVessels', label: 'Number of Major Vessels', type: 'select', options: [
-      { value: '0', label: '0' },
-      { value: '1', label: '1' },
-      { value: '2', label: '2' },
-      { value: '3', label: '3' }
-    ]},
-    { name: 'Thallium', label: 'Thallium Scan', type: 'select', options: [
-      { value: '3', label: 'Normal' },
-      { value: '6', label: 'Fixed Defect' },
-      { value: '7', label: 'Reversible Defect' }
-    ]}
-  ];
-  
+const formFields = [
+  { name: 'Age', label: 'Age', type: 'number', min: 0, max: 120, placeholder: 'Enter age' },
+  { name: 'Sex', label: 'Gender', type: 'select', options: [
+    { value: '0', label: 'Female' },
+    { value: '1', label: 'Male' }
+  ]},
+  { name: 'ChestPainType', label: 'Chest Pain Type', type: 'select', options: [
+    { value: '1', label: 'Typical Angina' },
+    { value: '2', label: 'Atypical Angina' },
+    { value: '3', label: 'Non-anginal Pain' },
+    { value: '4', label: 'Asymptomatic' }
+  ]},
+  { name: 'BP', label: 'Blood Pressure (mm Hg)', type: 'number', min: 0, max: 300, placeholder: 'e.g., 120' },
+  { name: 'Cholesterol', label: 'Cholesterol (mg/dl)', type: 'number', min: 0, max: 700, placeholder: 'e.g., 200' },
+  { name: 'FBS', label: 'Fasting Blood Sugar > 120 mg/dl', type: 'select', options: [
+    { value: '0', label: 'No (< 120)' },
+    { value: '1', label: 'Yes (> 120)' }
+  ]},
+  { name: 'EKG', label: 'EKG Results', type: 'select', options: [
+    { value: '0', label: 'Normal' },
+    { value: '1', label: 'ST-T Abnormality' },
+    { value: '2', label: 'Left Ventricular Hypertrophy' }
+  ]},
+  { name: 'MaxHR', label: 'Maximum Heart Rate', type: 'number', min: 0, max: 250, placeholder: 'e.g., 150' },
+  { name: 'ExerciseAngina', label: 'Exercise Induced Angina', type: 'select', options: [
+    { value: '0', label: 'No' },
+    { value: '1', label: 'Yes' }
+  ]},
+  { name: 'STDepression', label: 'ST Depression', type: 'number', step: '0.1', min: 0, max: 10, placeholder: 'e.g., 0.0' },
+  { name: 'SlopeST', label: 'Slope of ST Segment', type: 'select', options: [
+    { value: '1', label: 'Upsloping' },
+    { value: '2', label: 'Flat' },
+    { value: '3', label: 'Downsloping' }
+  ]},
+  { name: 'NumVessels', label: 'Number of Major Vessels', type: 'select', options: [
+    { value: '0', label: '0' },
+    { value: '1', label: '1' },
+    { value: '2', label: '2' },
+    { value: '3', label: '3' }
+  ]},
+  { name: 'Thallium', label: 'Thallium Scan', type: 'select', options: [
+    { value: '3', label: 'Normal' },
+    { value: '6', label: 'Fixed Defect' },
+    { value: '7', label: 'Reversible Defect' }
+  ]}
+];
+
+  // Mouse colourful effect  
+  const SplashLayer = React.memo(() => (
+  <div className="fixed inset-0 z-0 pointer-events-none">
+    <SplashCursor     
+      SIM_RESOLUTION={64}
+      DYE_RESOLUTION={512}
+      DENSITY_DISSIPATION={5.5}
+      VELOCITY_DISSIPATION={2.5}
+      PRESSURE={0.2}
+      CURL={3}
+      SPLAT_RADIUS={0.2}
+      SPLAT_FORCE={6000}
+      COLOR_UPDATE_SPEED={10} />
+  </div>
+));
+
 function App() {
   const [formData, setFormData] = useState({
     Age: '',
@@ -108,7 +124,6 @@ function App() {
     });
   };
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -158,84 +173,57 @@ function App() {
       setLoading(false);
     }
   };
-
+  
+  const isMobile = /Android|iPhone/i.test(navigator.userAgent);
 
   return ( 
     <Background>
-
-    {/* Mouse colourful effect */}
-    <div className="fixed inset-0 z-0 pointer-events-none">
-      <SplashCursor 
-        SIM_RESOLUTION={64}
-        DYE_RESOLUTION={512}
-        DENSITY_DISSIPATION={5.5}
-        VELOCITY_DISSIPATION={2.5}
-        PRESSURE={0.2}
-        CURL={3}
-        SPLAT_RADIUS={0.2}
-        SPLAT_FORCE={6000}
-        COLOR_UPDATE_SPEED={10}
-      />
-    </div>
+    {!isMobile && <SplashLayer />}
 
     {/* Header */}
     <Card>
     <Header/>
     </Card>
 
-      {/* User Inputs */}
-      <div className="max-w-6xl mx-auto relative z-10">
-      <Card>
-        <div className="p-8 mb-8 text-white">
-          <form onSubmit={handleSubmit}>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
-              {formFields.map((field) => (
-                <div key={field.name} className="space-y-2">
-                  <label className="block text-sm font-semibold text-indigo-100">
-                    {field.label}
-                  </label>
-                  {field.type === 'select' ? (
-                    <AnimatedSelect
-                      field={field}
-                      value={formData[field.name]}
-                      onChange={handleChange}
-                    />
-                    // <select
-                    //   name={field.name}
-                    //   value={formData[field.name]}
-                    //   onChange={handleChange}
-                    //   required
-                    //   className="w-full px-4 py-3 bg-gray-800/40 border border-white/20 text-white rounded-lg focus:ring-2 focus:ring-indigo-500 transition-all duration-200"
-                    // >
-                    //   {field.options.map(opt => (
-                    //     <option key={opt.value} value={opt.value}>
-                    //       {opt.label}
-                    //     </option>
-                    //   ))}
-                    // </select>
-                  ) : (
-                    <input
-                      type={field.type}
-                      name={field.name}
-                      value={formData[field.name]}
-                      onChange={handleChange}
-                      required
-                      min={field.min}
-                      max={field.max}
-                      step={field.step || '1'}
-                      placeholder={field.placeholder}
-                      className="w-full px-4 py-3 bg-gray-800/40 border border-white/20 text-white placeholder-gray-400 rounded-lg focus:ring-2 focus:ring-indigo-500 transition-all duration-200"
-                    />
-                  )}
-                </div>
-              ))}
-            </div>
-            
-         
+    {/* User Inputs */}
+    <div className="max-w-6xl mx-auto relative z-10">
+    <Card>
+      <div className="p-8 mb-8 text-white">
+        <form onSubmit={handleSubmit}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
+            {formFields.map((field) => (
+              <div key={field.name} className="space-y-2">
+                <label className="block text-sm font-semibold text-indigo-100">
+                  {field.label}
+                </label>
+                {field.type === 'select' ? (
+                  <AnimatedSelect
+                    field={field}
+                    value={formData[field.name]}
+                    onChange={handleChange}
+                  />
+                ) : (
+                  <input
+                    type={field.type}
+                    name={field.name}
+                    value={formData[field.name]}
+                    onChange={handleChange}
+                    required
+                    min={field.min}
+                    max={field.max}
+                    step={field.step || '1'}
+                    placeholder={field.placeholder}
+                    className="w-full px-4 py-3 bg-gray-800/40 border border-white/20 text-white placeholder-gray-400 rounded-lg focus:ring-2 focus:ring-indigo-500 transition-all duration-200"
+                  />
+                )}
+              </div>
+            ))}
+          </div>
+          
+        
 
           {/* Prediction Button */}
-          <div className="text-center">
-          
+          <div className="text-center"> 
           <button
             type="submit"
             disabled={loading}
@@ -260,7 +248,6 @@ function App() {
                 className="font-bold text-base tracking-tight uppercase"
               />
             )}
-            
           </button>
           </div>
         
@@ -277,7 +264,8 @@ function App() {
         )}
       </form>
     </div>
-
+    
+    {/* Prediction Results */}
     {prediction && (
       <div className={`rounded-2xl backdrop-blur-xl p-8 mb-8 border-4 transition-all duration-500 ${
         prediction.prediction === 1 
@@ -285,7 +273,6 @@ function App() {
           : 'bg-green-900/20 border-green-500/50 shadow-[0_0_20px_rgba(16,185,129,0.2)]'
         }`}
       >
-
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 pb-6 border-b border-gray-200">
               <div>
                 <h2 className="text-2xl font-bold text-white mb-2">📊 Prediction Results</h2>
@@ -420,7 +407,7 @@ function App() {
         </Card>
       </div>
       
-
+      {/* Bottom page Info */}
       <footer className="relative z-10 text-center mt-12 text-white/50 text-sm">
         <p>Heart Disease Risk Prediction API v1.1 • Stateless REST API for clinical risk inference</p>
         <p className="mt-2">Classification Model trained on real clinical data • Results are for informational purposes only</p>
